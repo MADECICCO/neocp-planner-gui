@@ -1,11 +1,5 @@
 import tkinter as tk
 from configparser import ConfigParser
-import planetfinder
-
-
-class PlanetFinderInterface:
-    main = planetfinder.planets.Main()
-    pass
 
 
 class ScrollFrame(tk.LabelFrame):
@@ -129,6 +123,9 @@ def main():
 
     right_frame = tk.LabelFrame(main_frame, text="Minor Planets")
     right_frame.pack(side="right", fill="both", padx=5, pady=5, expand=True)
+
+    option_0 = Option(left_frame, "Obs. code?", obs_code)
+    option_0.pack(fill="x")
 
     option_1 = Option(left_frame, "Min. score?", min_score)
     option_1.pack(fill="x")

@@ -4,3 +4,8 @@
 
 Automates observing plan. Uses information from the IAU Minor Planet Center: <https://minorplanetcenter.net/>
 Made for observatory L01.
+
+Requirements:
+
+-   `Python 3`
+-   `planetfinder` (<https://github.com/zhabar/planetfinder>)

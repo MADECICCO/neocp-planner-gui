@@ -3,6 +3,11 @@ from configparser import ConfigParser
 import planetfinder
 
 
+class PlanetFinderInterface:
+    main = planetfinder.planets.Main()
+    pass
+
+
 class ScrollFrame(tk.LabelFrame):
     def __init__(self, master, *args, **kwargs):
         super(ScrollFrame, self).__init__(master, *args, **kwargs)

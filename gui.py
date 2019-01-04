@@ -1,5 +1,6 @@
 import tkinter as tk
 from configparser import ConfigParser
+import planetfinder
 
 
 class ScrollFrame(tk.LabelFrame):
@@ -44,6 +45,7 @@ class Option(tk.Frame):
 class Toolbar(tk.LabelFrame):
     def __init__(self, master, *args, **kwargs):
         super(Toolbar, self).__init__(master, *args, **kwargs)
+
         self.file = tk.Button(self, text="File", bd=1, relief=tk.FLAT)
         self.file.pack(side="left")
 
@@ -64,8 +66,9 @@ class Console(tk.Text):
 
     def out(self, text):
         self.configure(state=tk.NORMAL)
-        self.insert("end", "\n<<< " + text)
+        self.insert("end", "\n<<< " + str(text))
         self.configure(state=tk.DISABLED)
+        self.see('end')
 
 
 class App(tk.Tk):
@@ -155,14 +158,10 @@ def main():
     console = Console(app)
     console.pack(side="bottom", fill="both", expand=False, padx=5, pady=5)
 
-    mp_editor = ScrollFrame(right_frame)
-    for i in range(25):
-        fr = tk.Frame(mp_editor.viewPort)
-        fr.pack(fill="x")
-        label = tk.Label(fr, text=str(i))
-        label.pack(side="left")
     add = tk.Button(right_frame, text="Add")
     add.pack(side="bottom")
+
+    mp_editor = ScrollFrame(right_frame)
     mp_editor.pack(side="right", fill="both", expand=True, padx=5, pady=5)
 
     # console.out("Hello, World!")
